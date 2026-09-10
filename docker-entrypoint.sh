@@ -3,10 +3,11 @@ set -e
 
 echo "🚀 Starting application..."
 
-# Roda as migrações
 echo "📦 Running database migrations..."
 node dist/scripts/run-migrations.js
 
-# Inicia a aplicação
+echo "📦 Running Better Auth migrations..."
+node dist/scripts/run-auth-migrations.js
+
 echo "✅ Migrations completed. Starting NestJS application..."
-exec node dist/src/main.js
+exec node dist/main.js

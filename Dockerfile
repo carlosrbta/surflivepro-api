@@ -55,6 +55,5 @@ RUN chmod +x docker-entrypoint.sh
 
 USER node
 
-
 # Container de API: (no Dokploy você usa esse comando por padrão)
 ENTRYPOINT ["./docker-entrypoint.sh"]
