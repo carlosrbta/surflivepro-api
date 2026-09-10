@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
-import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { AuthModule } from './auth/auth.module.js';
 import { AuthGuard } from './auth/guards/auth.guard.js';
 import { AuthorizationGuard } from './auth/guards/authorization.guard.js';
@@ -20,7 +19,6 @@ import { RealtimeModule } from './modules/realtime/realtime.module.js';
       envFilePath: ['.env.local', '.env'],
       validate: validateEnv,
     }),
-    ThrottlerModule.forRoot([{ ttl: 60_000, limit: 120 }]),
     DatabaseModule,
     AuthModule,
     AuditModule,
@@ -30,10 +28,6 @@ import { RealtimeModule } from './modules/realtime/realtime.module.js';
     RealtimeModule,
   ],
   providers: [
-    // Defense-in-depth for Nest-routed endpoints. Better Auth's own routes
-    // are raw Express middleware (see main.ts) and use its own built-in
-    // rateLimit config instead (doc decision — Nest guards never see them).
-    { provide: APP_GUARD, useClass: ThrottlerGuard },
     // Controller -> AuthGuard -> AuthorizationGuard -> ... (doc §7).
     { provide: APP_GUARD, useClass: AuthGuard },
     { provide: APP_GUARD, useClass: AuthorizationGuard },
