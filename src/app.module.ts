@@ -16,7 +16,6 @@ import { RealtimeModule } from './modules/realtime/realtime.module.js';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: ['.env.local', '.env'],
       validate: validateEnv,
     }),
     DatabaseModule,
