@@ -1,0 +1,26 @@
+{
+  "explorer.excludeGitIgnore": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "source.sortMembers": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.definitionLinkOpensInPeek": false,
+  "editor.links": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["tva\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "actionButtons": {
+    "defaultColor": "#ffffff",
+    "commands": [
+      {
+        "name": "🚀 Git Commit & Push",
+        "command": "git add .; git commit -m 'Auto commit'; git push",
+        "color": "#4287f5"
+      }
+    ]
+  }
+}

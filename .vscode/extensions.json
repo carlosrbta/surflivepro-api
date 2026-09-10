@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "esbenp.prettier-vscode",
+        "PKief.material-icon-theme",
+        "shd101wyy.markdown-preview-enhanced",
+        "Lokalise.i18n-ally",
+        "bradlc.vscode-tailwindcss"
+    ]
+}
